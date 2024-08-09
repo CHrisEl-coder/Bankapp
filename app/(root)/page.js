@@ -29,7 +29,11 @@ const loggedIn = { firstName: "Chris", lastName: "Codes", email: "edwinchristian
 
        <RightSideBar 
        user = {loggedIn}
-       banks = {[{}, {}]}
+       banks = {[{
+        currBal: 1234.50
+      }, {
+        currBal: 2223.79
+      }]}
        transaction = {[]}
        
        />

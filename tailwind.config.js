@@ -28,6 +28,7 @@ module.exports = {
 
       backgroundImage: {
         "gradient-mesh": "url('/icons/gradient-mesh.svg')",
+        "bank-gradient": "#700e01"
       },
       colors: {
         border: "hsl(var(--border))",
