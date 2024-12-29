@@ -1,14 +1,20 @@
+/* eslint-disable react/prop-types */
+import React from "react";
+
 import Image from "next/image";
 import Sidebar from "../Components/ui/Sidebar";
 import MobileNav from "../Components/ui/MobileNav";
+import { getLoggedInUser } from "@/lib/actions/userActions";
+import { redirect } from "next/navigation";
 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   
-  const loggedIn = {
-    firstName: "Christian",
-    lastName: "Codes"
-  }
+  const loggedIn = await getLoggedInUser();
+
+  if(!loggedIn) redirect('/sign-in')
+
+
   return (
    <main className=" flex h-screen font-inter w-full">
       <Sidebar user={loggedIn}/>

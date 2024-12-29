@@ -6,9 +6,9 @@ export const sideBarLinks = [
     },
 
     {
-       label: "My Accounts",
+       label: "Accounts",
        icon: "/icons/dollar-circle.svg",
-       url: "my-accs"
+       url: "/accs"
     },
 
     {

@@ -1,5 +1,5 @@
 'use client'
-
+import React from "react"
 import {
   Sheet,
   SheetClose,
@@ -11,9 +11,11 @@ import { sideBarLinks } from "@/constants"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { Footer } from "./Footer"
 
 
-const MobileNav = () => {
+// eslint-disable-next-line react/prop-types
+const MobileNav = ({user}) => {
   const pathname = usePathname();
   return (
     <Sheet>
@@ -85,7 +87,7 @@ const MobileNav = () => {
 
           </SheetClose>
 
-          FOOTER
+          <Footer user={user} type="mobile"/>
           
       </SheetContent>
 </Sheet>

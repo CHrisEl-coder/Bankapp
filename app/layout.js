@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Inter, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -8,6 +10,7 @@ const ibm_plex_serif = IBM_Plex_Serif({ subsets: ["latin"],
   variable: "--font-ibm-plex-serif"
 })
 
+
 export const metadata = {
   title: "Transact",
   description: "Transact is a bankapp for cross platform transaction and banking services.",
@@ -16,6 +19,7 @@ export const metadata = {
   }
 };
 
+// eslint-disable-next-line react/prop-types
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

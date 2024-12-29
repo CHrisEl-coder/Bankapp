@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Card from './Card'
+import PropTypes from 'prop-types'
 
 const RightSideBar = ({banks, user, transaction}) => {
   return (
@@ -11,13 +12,13 @@ const RightSideBar = ({banks, user, transaction}) => {
           <div className='profile'>
             <div className='profile-img'>
                <span className='text-5xl font-bold text-amber-900'>
-               {user.firstName[0]}  
+               {user !== null ? user.name[0] : "guest"}  
                </span>
             </div>
 
             <div className='profile-details'>
               <h1 className='profile-name'>
-                 {user.firstName} {user.lastName}
+                 {user !== null ? user.name : 'John Doe'}
               </h1>
                
               <p className='profile-email'>
@@ -48,7 +49,7 @@ const RightSideBar = ({banks, user, transaction}) => {
                 <Card 
                 key={banks[0].id}
                 accounts={banks[0]}
-                ownerName={`${user.firstName} ${user.lastName}`}
+                ownerName={`${user.name}`}
                 showBal={false}
                 />
               </div>
@@ -57,7 +58,7 @@ const RightSideBar = ({banks, user, transaction}) => {
                   <Card 
                   key={banks[1].id}
                   accounts={banks[1]}
-                  ownerName={`${user.firstName} ${user.lastName}`}
+                  ownerName={`${user.name}`}
                   showBal={false}/>
                 </div>
               )}
@@ -66,6 +67,12 @@ const RightSideBar = ({banks, user, transaction}) => {
        </section>
     </aside>
   )
+}
+
+RightSideBar.propTypes = {
+  user: PropTypes.any,
+  banks: PropTypes.any,
+  transaction: PropTypes.any
 }
 
 export default RightSideBar

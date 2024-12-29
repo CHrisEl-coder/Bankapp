@@ -6,8 +6,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
+import { Footer } from './Footer'
+import PropTypes from 'prop-types'
 
-const Sidebar = () => {
+const Sidebar = ({ user }) => {
 
     const pathname = usePathname();
 
@@ -31,12 +33,12 @@ const Sidebar = () => {
           </Link>
 
           {sideBarLinks.map((item) => {
-            const isAtcive = pathname === item.url || pathname.startsWith(`${item.url}/`);
+            const isActive = pathname === item.url || pathname.startsWith(`${item.url}/`);
 
             return (
 
               <Link href={item.url} key={item.label} className={cn('sidebar-link', {
-                'bg-amber-900': isAtcive
+                'bg-amber-900': isActive
             })}>
                <div className=' relative size-5'>
                   <Image 
@@ -44,13 +46,13 @@ const Sidebar = () => {
                     alt={item.label}
                     fill
                     className={cn({
-                        'brightness-[3] invert-0' : isAtcive
+                        'brightness-[3] invert-0' : isActive
                     })}
                   />
                </div>
 
                <p className={cn('sidebar-label', {
-                    "!text-white" : isAtcive
+                    "!text-white" : isActive
                })}>
                  {item.label}
                </p>
@@ -62,9 +64,13 @@ const Sidebar = () => {
           USER
        </nav>
 
-       FOOTER
+       <Footer user={user} />
     </section>
   )
+}
+
+Sidebar.propTypes = {
+  user: PropTypes.any
 }
 
 export default Sidebar

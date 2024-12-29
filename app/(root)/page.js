@@ -2,19 +2,25 @@ import React from 'react'
 import Hero from '../Components/ui/Hero'
 import TotalBal from '../Components/ui/TotalBal'
 import RightSideBar from '../Components/ui/RightSideBar'
+import { getLoggedInUser } from '@/lib/actions/userActions'
 
 
 
 
-const Home = () => {
-const loggedIn = { firstName: "Chris", lastName: "Codes", email: "edwinchristian97@gmail"}
+const Home = async () => {
+
+  const loggedIn = await getLoggedInUser();
+  const dummy = {
+    name: "John Doe",
+    email: "johnDoe@mail.com"
+  }
   return (
     <section className='home'>
        <div className='home-content'>
           <header className='home-header'>
               <Hero 
                 title="Welcome" 
-                user={loggedIn.firstName || "Guest" } 
+                user={loggedIn ? loggedIn.name : "Guest"} 
                 sub="Manage your daily financial transation, Swiftly and with Ease." />
 
                 <TotalBal 
@@ -28,7 +34,7 @@ const loggedIn = { firstName: "Chris", lastName: "Codes", email: "edwinchristian
        </div>
 
        <RightSideBar 
-       user = {loggedIn}
+       user = {loggedIn ? loggedIn : dummy}
        banks = {[{
         currBal: 1234.50
       }, {
