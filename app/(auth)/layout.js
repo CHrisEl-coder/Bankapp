@@ -8,20 +8,15 @@ import Image from "next/image"
 export default function RootLayout({ children }) {
 
   return (
-     <main className=" flex justify-between content-center p-8 gap-4">
-         {children}
-         <div>
-               <div className="auth-asset">
-
-                  <Image 
-                  src="/icons/bank.jpg"
-                  width={600}
-                  height={100}
-                  alt="bank icon"
-                  />
-               
-               </div>
-         </div>
+     <main className=" mx-auto w-full">
+        <div className="mx-auto max-w-3xl flex flex-col md:flex-row items-stretch justify-center p-4 shadow-md rounded-lg">
+           <div className="w-full md:w-1/2">
+            {children}
+           </div>
+           <div className="relative w-full md:w-1/2 ">
+            <Image src={"/icons/bank.jpg"} alt="Banking Asset" fill className="object-cover" />
+           </div>
+        </div>
      </main>
   );
 }
