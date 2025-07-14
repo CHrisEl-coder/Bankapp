@@ -21,7 +21,9 @@ export const DropDown = ({ accounts = [], setValue, otherStyles }) => {
   const [selected, setSeclected] = useState(accounts.data[0]);
 
   const handleBankChange = (id) => {
-    const account = accounts?.find((account) => account.appwriteItemId === id);
+    const account = accounts?.data?.find(
+      (account) => account.appwriteItemId === id
+    );
 
     setSeclected(account);
     const newUrl = formUrlQuery({

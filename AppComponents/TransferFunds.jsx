@@ -13,13 +13,13 @@ import { createTransaction } from "@/lib/actions/transaction.actions";
 import { getBank, getBankByAccountId } from "@/lib/actions/userActions";
 import { decryptId } from "@/lib/utils";
 
-// import { BankDropdown } from "./bank/BankDropdown";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { TransferInput } from "./Reusable/CustomInput";
 import PropTypes from "prop-types";
+import { Slide, toast } from "react-toastify";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -78,6 +78,17 @@ const PaymentTransferForm = ({ accounts }) => {
 
         if (newTransaction) {
           form.reset();
+          toast.success("Transfer Successful", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Slide,
+          });
           router.push("/");
         }
       }
@@ -90,7 +101,7 @@ const PaymentTransferForm = ({ accounts }) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(submit)} className="flex flex-col">
+      <form onSubmit={form.handleSubmit(submit)} className="payment-transfer">
         <TransferInput
           control={form.control}
           name={"senderBank"}
@@ -103,7 +114,7 @@ const PaymentTransferForm = ({ accounts }) => {
             <DropDown
               accounts={accounts}
               setValue={form.setValue}
-              otherStyles="!w-full"
+              otherStyles="w-full"
             />
           )}
         </TransferInput>
@@ -119,7 +130,7 @@ const PaymentTransferForm = ({ accounts }) => {
           {(field) => (
             <Textarea
               placeholder="Write a short note here"
-              className="input-class"
+              className="input-class "
               {...field}
             />
           )}
@@ -137,7 +148,7 @@ const PaymentTransferForm = ({ accounts }) => {
         <TransferInput
           control={form.control}
           name={"email"}
-          label={"Recipient&apos;s Email Address"}
+          label={"Recipient's Email Address"}
         >
           {(field) => (
             <Input
@@ -151,7 +162,7 @@ const PaymentTransferForm = ({ accounts }) => {
         <TransferInput
           control={form.control}
           name={"sharableId"}
-          label={"Receiver&apos;s Plaid Sharable Id"}
+          label={"Receiver's Plaid Sharable Id"}
         >
           {(field) => (
             <Input

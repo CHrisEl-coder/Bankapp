@@ -55,29 +55,40 @@ export const TransferInput = ({
   children,
   className = "",
 }) => {
-  <FormField
-    control={control}
-    name={name}
-    render={({ field }) => (
-      <FormItem className={`border-y border-gray-200 ${className}`}>
-        <div className="payment-transfer_form-item py-5">
-          {label && (
-            <FormLabel className="text-14 w-full max-w-[280px] font-medium text-gray-700">
-              {label}
-            </FormLabel>
-          )}
-          {description && (
-            <FormDescription className="text-12 font-normal text-gray-600">
-              {description}
-            </FormDescription>
-          )}
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem className={`border-y border-gray-200 ${className}`}>
+          <div className="payment-transfer_form-item py-5">
+            {label && (
+              <FormLabel className="text-14 w-full max-w-[280px] font-medium text-gray-700">
+                {label}
+              </FormLabel>
+            )}
+            {description && (
+              <FormDescription className="text-12 font-normal text-gray-600">
+                {description}
+              </FormDescription>
+            )}
 
-          <div className="flex w-full flex-col">
-            <FormControl>{children(field)}</FormControl>
-            <FormMessage className="text-12 text-red-500" />
+            <div className="flex w-full flex-col">
+              <FormControl>{children(field)}</FormControl>
+              <FormMessage className="text-12 text-red-500" />
+            </div>
           </div>
-        </div>
-      </FormItem>
-    )}
-  />;
+        </FormItem>
+      )}
+    />
+  );
+};
+
+TransferInput.propTypes = {
+  control: PropTypes.any.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  children: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };

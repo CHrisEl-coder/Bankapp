@@ -63,6 +63,10 @@
     color: #f7f4f4;
   }
 
+  .bg-gray-25 {
+    background-color: "#F9FAFB";
+  }
+
   .text-secondary {
     color: #443850
   }
@@ -128,7 +132,7 @@
   }
 
   .home-content {
-    @apply no-scrollbar flex-1 w-full flex flex-col gap-8 px-2 sm:px-4 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
+    @apply no-scrollbar flex-1 w-full max-w-[770px] flex flex-col gap-8 px-2 sm:px-4 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
   }
 
   .home-header {
@@ -136,7 +140,7 @@
   }
 
   .total-balance {
-    @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
+    @apply bg-dom flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
   }
 
   .total-balance-chart {
@@ -173,7 +177,7 @@
 
   /* Right sidebar */
   .right-sidebar {
-    @apply no-scrollbar max-md:hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[400px] xl:overflow-y-scroll !important;
+    @apply no-scrollbar max-md:hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[350px] xl:overflow-y-scroll !important;
   }
 
   .profile-banner {
@@ -211,7 +215,7 @@
 
   /* My Banks */
   .transactions {
-    @apply flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-neutral-50 p-8 xl:py-12;
+    @apply flex mx-auto max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-neutral-50 p-8 xl:py-12;
   }
 
   .transactions-header {
@@ -219,11 +223,11 @@
   }
 
   .transactions-account {
-    @apply flex flex-col justify-between gap-4 rounded border-y bg-blue-600 px-4 py-5 md:flex-row 
+    @apply flex flex-col justify-between gap-4 rounded border-y bg-amber-800 px-4 py-5 md:flex-row 
   }
 
   .transactions-account-balance {
-    @apply flex-center flex-col  gap-2 rounded bg-white/30 backdrop-blur-lg px-4 py-2 text-white;
+    @apply flex-center flex-col  gap-2 rounded bg-white/20 backdrop-blur-lg px-4 py-2 text-white;
   }
 
   .header-box {
@@ -253,7 +257,7 @@
 
   /* Bank Info */
   .bank-info {
-    @apply gap-[18px] flex p-4 transition-all border bg-blue-50 border-transparent;
+    @apply gap-[18px] flex p-4 transition-all border bg-amber-25 border-transparent;
   }
 
   /* Category Badge */
@@ -323,7 +327,7 @@
 
   /* Payment Transfer */
   .payment-transfer {
-    @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 p-8 md:max-h-screen xl:py-12;
+    @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 p-8 xl:py-12;
   }
 
   .payment-transfer_form-item {
@@ -339,11 +343,11 @@
   }
 
   .payment-transfer_btn-box {
-    @apply mt-5 flex w-full max-w-[850px] gap-3 border-gray-200 py-5;
+    @apply mt-5 flex w-full max-w-[850px] gap-3 border-neutral-500 py-5;
   }
 
   .payment-transfer_btn {
-    @apply text-14 w-full bg-bank-gradient font-semibold text-white shadow-form !important;
+    @apply text-14 w-full bg-amber-800 font-semibold text-white shadow-form !important;
   }
 
   /* Root Layout */

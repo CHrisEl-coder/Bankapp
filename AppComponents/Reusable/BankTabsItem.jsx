@@ -25,12 +25,12 @@ export const BankTabItem = ({ account, appwriteItemId }) => {
     <div
       onClick={handleBankChange}
       className={cn(`banktab-item`, {
-        " border-blue-600": isActive,
+        " border-amber-600": isActive,
       })}
     >
       <p
         className={cn(`text-16 line-clamp-1 flex-1 font-medium text-gray-500`, {
-          " text-blue-600": isActive,
+          " text-amber-800": isActive,
         })}
       >
         {account.name}

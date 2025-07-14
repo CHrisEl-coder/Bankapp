@@ -1,11 +1,11 @@
-import Hero from '@/app/AppComponents/ui/Hero'
+import Hero from '@/AppComponents/Reusable/Hero';
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/userActions';
 import React from 'react'
 import PropTypes from 'prop-types';
-import Transactions from '@/app/AppComponents/ui/Transactions';
+import Transactions from '@/AppComponents/Reusable/Transactions';
 import { formatAmount } from '@/lib/utils';
-import { Pagination } from '@/app/AppComponents/ui/Pagination';
+import { Pagination } from '@/AppComponents/Reusable/Pagination';
 
 const History = async ({searchParams}) => {
 
@@ -42,7 +42,7 @@ const History = async ({searchParams}) => {
   const account = await getAccount({appwriteItemId: itemId});
    const displayedRows = 10;
   const totalPages = Math.ceil(account?.transactions.length / displayedRows);
-  const lastTransactionIndex = page * displayedRows;
+  const lastTransactionIndex = currentPage * displayedRows;
   const firstTransactionIndex = lastTransactionIndex - displayedRows;
 
   const currentRows = account?.transactions.slice(
@@ -50,31 +50,32 @@ const History = async ({searchParams}) => {
     lastTransactionIndex
   );
 
+  
   return (
        <section className='transactions'>
           <div className='transactions-header'>
-    <Hero
-           title="Transaction History"
-           sub="View your transaction history and deails."
-           />
+             <Hero
+              title="Transaction History"
+              sub="View your transaction history and deails."
+              />
           </div>
-           <div>
+          <div className='w-full'>
             <div className='space-y-6'>
               <div className='transactions-account'>
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-14 text-white font-semibold'>
                      {account?.data?.name}
                   </h2>
-                  <p className='text-12 text-blue-100 font-medium'> {account?.data?.officialName}</p>
+                   <p className='text-12 text-blue-100 font-medium'> {account?.data?.officialName}</p>
                    <p className="text-14 font-semibold text-white tracking-[1.1px]">
-              ●●●● ●●●● ●●●●
-              <span className="text-16"> {account?.data?.mask} </span>
-            </p>
+                     ●●●● ●●●● ●●●●
+                     <span className="text-16"> {account?.data?.mask} </span>
+                   </p>
                 </div>
 
                 <div className='transactions-account-balance'>
 
-                  <p className='text-14 font-medium text-blue-100'>
+                  <p className='text-14 font-medium text-amber-100'>
                     Current Balance
                   </p>
                   <p className='text-16 font-bold text-white'>

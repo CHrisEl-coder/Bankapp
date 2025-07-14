@@ -21,13 +21,12 @@ const Category = ({ category }) => {
     bg,
     text: { main, count: countText },
     circleBg,
+    borderColor,
   } = style;
 
   return (
     <div className={cn("flex gap-4 items-center p-4", bg)}>
-      <figure
-        className={cn("rounded-full p-2 border border-pink-950", circleBg)}
-      >
+      <figure className={cn("rounded-full p-2 border", circleBg, borderColor)}>
         <Image src={icon} alt="merchant logo" width={20} height={20} />
       </figure>
       <div className="w-full flex flex-col gap-2">

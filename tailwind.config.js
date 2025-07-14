@@ -11,9 +11,9 @@ export const content = [
   './src/**/*.{js,jsx}',
 ]
 export const safelist = [
-   'bg-pink-500', 'text-pink-700', 'border-pink-600' , 'bg-pink-100', 
+   'bg-pink-500', 'bg-success-50', 'text-pink-700', 'border-pink-600' , 'bg-pink-100', 'bg-red-100', 'text-red-500', 
    'text-pink-700', 'text-pink-900', 'bg-success-100', 'bg-success-700', 'text-success-700', 'text-success-900', 'bg-pink-700', 'text-pink-700', 
-    'bg-green-600', 'text-success-700', 'border-success-600',
+    'bg-green-600', 'text-success-700', 'border-success-600', 'border-blue-600', 'border-pink-600', 'border-red-700',
     'bg-pink-25', 'bg-success-25', 'bg-blue-25', 'bg-blue-100', 'text-blue-900', 'text-blue-700',
     'bg-red-700', 'text-red-700', 'border-red-700',
     'bg-emerald-600', 'text-emerald-700', 'border-emerald-600',
@@ -108,6 +108,19 @@ export const theme = {
           700: "#175CD3",
           900: "#194185",
         },
+
+        amber: {
+          25: "#FFF8F0",
+          50: "#FFEDD5",
+          100: "#FFD69A",
+          600: "#D97706",
+          700: "#B45309",
+          900: "#7C2D12",
+        },
+
+        gray: {
+          25: "#F9FAFB",
+        }
     },
     borderRadius: {
       lg: "var(--radius)",

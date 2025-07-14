@@ -79,7 +79,7 @@ export const PlaidLink = ({ user, variant }) => {
       )}
 
       <p
-        className={`text-[16px] font-medium w-full  ${
+        className={`text-[14px] font-medium  ${
           variant === "default" || variant === "ghost"
             ? "hidden text-neutral-600"
             : "text-white"

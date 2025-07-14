@@ -26,35 +26,10 @@ export const sideBarLinks = [
 
 
 export const topCategoryStyles = {
-  "Food and Drink": {
-    bg: "bg-blue-25",
-    circleBg: "bg-blue-100",
-    text: {
-      main: "text-blue-900",
-      count: "text-blue-700",
-    },
-    progress: {
-      bg: "bg-blue-100",
-      indicator: "bg-blue-700",
-    },
-    icon: "/icons/monitor.svg",
-  },
-  Travel: {
-    bg: "bg-success-25",
-    circleBg: "bg-success-100",
-    text: {
-      main: "text-success-900",
-      count: "text-success-700",
-    },
-    progress: {
-      bg: "bg-success-100",
-      indicator: "bg-success-700",
-    },
-    icon: "/icons/coins.svg",
-  },
-  default: {
+  "Food_and_Drink": {
     bg: "bg-pink-25",
     circleBg: "bg-pink-100",
+    borderColor: "border-pink-600",
     text: {
       main: "text-pink-900",
       count: "text-pink-700",
@@ -65,6 +40,87 @@ export const topCategoryStyles = {
     },
     icon: "/icons/shopping-bag.svg",
   },
+  "Bank_Fees": {
+    bg: "bg-success-25",
+    borderColor: "border-success-600",
+    circleBg: "bg-success-100",
+    text: {
+      main: "text-success-900",
+      count: "text-success-700",
+    },
+    progress: {
+      bg: "bg-success-100",
+      indicator: "bg-success-700",
+    },
+    icon: "/icons/bankfee.svg",
+  },
+  Travel: {
+    bg: "bg-blue-100",
+    borderColor: "border-blue-600",
+    circleBg: "bg-blue-100",
+    text: {
+      main: "text-blue-900",
+      count: "text-blue-700",
+    },
+
+    progress: {
+      bg: "bg-blue-100",
+      indicator: "bg-blue-700",
+    },
+
+    icon: "/icons/travel.svg"
+
+  },
+
+
+  Transportation: {
+    bg: "bg-success-25",
+    borderColor: "border-success-600",
+    circleBg: "bg-success-100",
+    text: {
+      main: "text-success-900",
+      count: "text-success-700",
+    },
+    progress: {
+      bg: "bg-success-100",
+      indicator: "bg-success-700",
+    },
+    icon: "/icons/transport.svg",
+  },
+
+
+  Income: {
+    bg: "bg-red-100",
+    borderColor: "border-red-700",
+    circleBg: "bg-red-100",
+    text: {
+      main: "text-red-700",
+      count: "text-red-500",
+    },
+    progress: {
+      bg: "bg-red-100",
+      indicator: "bg-red-700",
+    },
+    icon: "/icons/earnings.svg",
+  },
+
+
+  default: {
+    bg: "bg-success-50",
+    circleBg: "bg-success-100",
+    borderColor: "border-success-600",
+    text: {
+      main: "text-success-900",
+      count: "text-success-700",
+    },
+    progress: {
+      bg: "bg-success-100",
+      indicator: "bg-success-700",
+    },
+    icon: "/icons/coins.svg",
+  },
+
+
 };
 
 export const transactionCategoryStyles = {
