@@ -12,6 +12,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Footer } from "./Footer";
+import { PlaidLink } from "./Reusable/PlaidLink";
 
 // eslint-disable-next-line react/prop-types
 const MobileNav = ({ user }) => {
@@ -68,7 +69,7 @@ const MobileNav = ({ user }) => {
                 </SheetClose>
               );
             })}
-            User
+            <PlaidLink user={user} variant={"ghost"} />
           </nav>
         </SheetClose>
 

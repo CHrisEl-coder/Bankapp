@@ -9,6 +9,11 @@ import React from "react";
 import { Footer } from "./Footer";
 import PropTypes from "prop-types";
 import { PlaidLink } from "./Reusable/PlaidLink";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
 const Sidebar = ({ user }) => {
   const pathname = usePathname();
@@ -40,16 +45,25 @@ const Sidebar = ({ user }) => {
                 "bg-amber-900": isActive,
               })}
             >
-              <div className=" relative size-5">
-                <Image
-                  src={item.icon}
-                  alt={item.label}
-                  fill
-                  className={cn({
-                    "brightness-[3] invert-0": isActive,
-                  })}
-                />
-              </div>
+              <Tooltip>
+                <div className=" relative size-5">
+                  <TooltipTrigger asChild>
+                    <Image
+                      src={item.icon}
+                      alt={item.label}
+                      fill
+                      className={cn({
+                        "brightness-[3] invert-0": isActive,
+                      })}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent className={cn("!z-0 ")}>
+                    <p className="text-black borde font-sm font-medium">
+                      {item.label}
+                    </p>
+                  </TooltipContent>
+                </div>
+              </Tooltip>
 
               <p
                 className={cn("sidebar-label", {

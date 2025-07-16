@@ -80,9 +80,7 @@ export const PlaidLink = ({ user, variant }) => {
 
       <p
         className={`text-[14px] font-medium  ${
-          variant === "default" || variant === "ghost"
-            ? "hidden text-neutral-600"
-            : "text-white"
+          variant === "default" ? "hidden text-neutral-600" : "text-white"
         } xl:block`}
       >
         Connect Bank{" "}
