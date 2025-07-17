@@ -1,12 +1,15 @@
 import PaymentTransferForm from '@/AppComponents/TransferFunds';
 import Hero from '@/AppComponents/Reusable/Hero';
 import { getAccounts } from '@/lib/actions/bank.actions';
-import { getLoggedInUser } from '@/lib/actions/userActions';
+
 import React from 'react'
+import { redirectIfNotLoggedIn } from '@/lib/auth/redirect';
+
 
 const Transfer = async () => {
 
-  const loggedIn = await getLoggedInUser();
+  const loggedIn = await redirectIfNotLoggedIn();
+
   
   const accounts = await getAccounts({userId: loggedIn ? loggedIn?.$id : null});
   return (

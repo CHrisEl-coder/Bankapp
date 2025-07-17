@@ -4,17 +4,17 @@ import React from "react";
 import Image from "next/image";
 import Sidebar from "@/AppComponents/Sidebar";
 import MobileNav from "@/AppComponents/MobileNav";
-import { getLoggedInUser } from "@/lib/actions/userActions";
-import { redirect } from "next/navigation";
+
 import { ToastContainer } from "react-toastify";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { redirectIfNotLoggedIn } from "@/lib/auth/redirect";
 
 
 export default async function RootLayout({ children }) {
   
-  const loggedIn = await getLoggedInUser();
+  const loggedIn = await redirectIfNotLoggedIn();
 
-  if(!loggedIn) redirect('/sign-in')
+  
 
 
   return (

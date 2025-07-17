@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import Hero from '@/AppComponents/Reusable/Hero'
 import TotalBal from '@/AppComponents/TotalBal'
 import RightSideBar from '@/AppComponents/RightSideBar'
-import { getLoggedInUser } from '@/lib/actions/userActions'
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions'
 import RecentTransactions from '@/AppComponents/Reusable/RecentTransactions'
+import { redirectIfNotLoggedIn } from '@/lib/auth/redirect'
+
 
 
 
@@ -16,9 +17,9 @@ const Home = async ({ searchParams }) => {
 
   const currentPage = page ? parseInt(page) : 1;
 
-  const loggedIn = await getLoggedInUser();
+  const loggedIn = await redirectIfNotLoggedIn();
 
-  const accounts = await getAccounts({userId: loggedIn ? loggedIn?.$id : null});
+  const accounts =  await getAccounts({userId: loggedIn ? loggedIn?.$id : null}) ;
 
   if (!loggedIn) {
     return (

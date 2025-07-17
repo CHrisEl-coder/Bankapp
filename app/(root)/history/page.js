@@ -1,11 +1,13 @@
 import Hero from '@/AppComponents/Reusable/Hero';
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
-import { getLoggedInUser } from '@/lib/actions/userActions';
+
 import React from 'react'
 import PropTypes from 'prop-types';
 import Transactions from '@/AppComponents/Reusable/Transactions';
 import { formatAmount } from '@/lib/utils';
 import { Pagination } from '@/AppComponents/Reusable/Pagination';
+
+import { redirectIfNotLoggedIn } from '@/lib/auth/redirect';
 
 const History = async ({searchParams}) => {
 
@@ -13,7 +15,7 @@ const History = async ({searchParams}) => {
 
   const currentPage = page ? parseInt(page) : 1;
 
-  const loggedIn = await getLoggedInUser();
+  const loggedIn = await redirectIfNotLoggedIn();
 
   const accounts = await getAccounts({userId: loggedIn ? loggedIn?.$id : null});
 
